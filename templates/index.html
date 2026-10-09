@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Sudoku Studio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='game.js') }}" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">NUMBER LOGIC · DAILY CHALLENGE</p>
+        <h1>Sudoku Studio</h1>
+        <p class="subtitle">A little focus. One square at a time.</p>
+      </div>
+      <button id="themeToggle" class="secondary" type="button">Toggle dark mode</button>
+    </header>
+
+    <section class="toolbar" aria-label="Game controls">
+      <label for="difficulty">Difficulty</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button id="newGame" type="button">New game</button>
+      <button id="checkGame" class="secondary" type="button">Check puzzle</button>
+      <button id="hintGame" class="secondary" type="button">Get a hint</button>
+    </section>
+
+    <section class="game-layout">
+      <div class="board-panel">
+        <div class="status-row">
+          <span id="status" role="status" aria-live="polite">Starting game…</span>
+          <span class="timer" id="timer">00:00</span>
+        </div>
+        <div id="board" class="board" role="group" aria-label="Sudoku board"></div>
+        <p class="help">Select a square and enter 1–9. Use Backspace or Delete to clear an editable cell.</p>
+      </div>
+
+      <aside class="side-panel">
+        <h2>Number pad</h2>
+        <div id="numberPad" class="number-pad"></div>
+        <button id="erase" class="secondary full-width" type="button">Erase cell</button>
+        <h2>Top 10 fastest times</h2>
+        <p class="help">Times are stored in this browser.</p>
+        <ol id="leaderboard" class="leaderboard"></ol>
+      </aside>
+    </section>
+    <footer>Sudoku Studio · Built with Python, Flask and JavaScript</footer>
+  </main>
+</body>
+</html>
